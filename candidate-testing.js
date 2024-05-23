@@ -11,9 +11,10 @@ let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questions = ["Who was the first American woman in space?", "True or false: 5 kilometer == 5000 meters?", "(5 + 3)/2 * 10 = ?", 
+"Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?", "What is the minimum crew size for the ISS?"];
+let correctAnswers = ['Sally Ride', 'true', '40', 'Trajectory', 3];
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -24,6 +25,55 @@ candidateName = input.question("Please enter your name:" );
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 candidateAnswer = input.question(question);
+
+console.log('Welcome to the Multiple Choice Test');
+let multipleQuestions = true;
+
+for (let multipleQuestions = 0; multipleQuestions < questions.length; multipleQuestions++) {
+    
+    let firstWoman = input.question(questions[multipleQuestions]);
+
+    candidateAnswers.push(firstWoman);
+
+    // if (firstWoman !== 'Sally Ride') {
+    //     console.log("That is correct");
+    //     firstWoman = false;
+    // }
+
+    // console.log('That is incorrect');
+    
+    // let trueOrFalse = input.question("True or false: 5 kilometer == 5000 meters? (true/false)");
+    
+    // if (trueOrFalse !== 'true') {
+    //   console.log("That is correct");
+    //   trueOrFalse = false;
+    // }
+    // console.log("That is incorrect");
+
+    // const mathProblem = input.question('(5 + 3)/2 * 10 = ?');
+
+    // if (mathProblem !== "40") {
+    //   console.log("That is correct");
+    //   mathProblem = false
+    // }
+    // console.log("That is incorrect");
+
+    // "Given the array [8, 'Orbit', 'Trajectory', 45]";
+
+    // let array = input.question('What entry is at index 2?');
+
+    // for (let index = 0; index < array; index++) {
+
+    //     for (let indexj = 0; indexj < array.length; indexj++){
+    //         console.log(`${indexj + 1}: ${booksToBuy[indexj]}`);
+    //     }
+    //     let crewSize = input.question('What is the minimum crew size for the ISS?');
+    //     booksBought.push(crewSize)
+    // }
+
+    // console.log(crewSize);
+  }
+console.log(candidateAnswers);
 }
 
 function gradeQuiz(candidateAnswers) {
@@ -50,7 +100,7 @@ function runProgram() {
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
-
+//runProgram()
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
   candidateName: candidateName,
